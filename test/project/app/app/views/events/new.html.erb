@@ -1,0 +1,48 @@
+<h1>event page</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@event) do |f| %>
+
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+        <div class="alert alert-error">
+          The form contains <%= pluralize(@event.errors.count, "error") %>.
+        </div>
+        <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li>* <%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+
+      <%= f.label :event_mame %>
+      <%= f.text_field :event_name %>
+
+       <%= f.label :venue %>
+      <%= f.text_field :venue %>
+
+ 	    <%= f.label :date %>
+      <%= f.text_field :date %>
+
+      <%= f.label :time %>
+      <%= f.text_field :time %>
+
+      <%= f.label :description %>
+      <%= f.password_field :description %>
+
+          <%= f.label :invited %>
+      <%= f.password_field :invited %>'
+
+          <%= f.label :status %>
+      <%= f.password_field :status %>
+<br>
+
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
