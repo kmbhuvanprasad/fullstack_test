@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "Event Schedular", '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home",  root_path %></li>
+             <li><%= link_to "sign in", new_user_path %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+   </div>
+
+    <br><br><br><br>
+   <div class="container">
+		<div class="center hero-unit">
+ 			<h1>Welcome to the Events Schedular</h1>
+
+		  <h2>
+		    This is the home page for the
+		    <a href="">Events Schedular</a>
+		  </h2>
+  </div>
+<br><br><br><br>
+  
+    <div class="container">
+      <%= yield %>
+    </div>
+
+<br><br><br><br><br><br>
+<footer class="footer">
+  <small>
+    <a href="">Event Handling  by Bhuvan Prasad</a>
+  </small>
+  <br>
+  <p> All copyrights © reserved by 5-mg 2016, Inc</p>
+</footer>
+
+
+
+</body>
+</html>
