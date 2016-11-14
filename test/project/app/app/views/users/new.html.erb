@@ -1,20 +1,36 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Event Schedular", '#', id: "logo" %>
+       <%= image_tag("images.jpg", :size => "55x55",:alt => "image_not_loading",id:"logoimg") %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home",  root_path %></li>
+         <li><%= link_to "sign in", signup_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<br><br><br><br><br>
 <h1>Sign up</h1>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-        <div class="alert alert-error">
-          The form contains <%= pluralize(@user.errors.count, "error") %>.
-        </div>
-        <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li>* <%= msg %></li>
-        <% end %>
-        </ul>
-    </div>
+    <%= form_for :user, url: '/users' do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+          <h2>
+            <%= pluralize(@article.errors.count, "error") %> prohibited
+            this article from being saved:
+          </h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li> <%= msg %></li>
+            <% end %>
+          </ul>
+      </div>
   <% end %>
 
 
@@ -30,6 +46,9 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 
+       <%= f.label :phonenumber %>
+      <%= f.text_field :phonenumber %>
+
       <%= f.label :password %>
       <%= f.password_field :password %>
 
@@ -37,8 +56,8 @@
       <%= f.password_field :password_confirmation %> <br>
 
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
+       </div>
 </div>
 
-
+    <% end %>
+ 

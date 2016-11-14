@@ -1,0 +1,33 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Event Schedular", '#', id: "logo" %>
+       <%= image_tag("images.jpg", :size => "55x55",:alt => "image_not_loading",id:"logoimg") %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home",  root_path %></li>
+         <li><%= link_to "sign out", signup_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @event.each do |event| %>
+    <tr>
+      <td><%= event.event_name %></td> <br>
+      <td><%= event.date %></td><br>
+      <td><%= event.description %></td><br>
+      <td><%= event.venue %></td><br>
+      <td><%= event.time %></td><br>
+      <td><%= event.status %></td><br>
+      <td><%= event.invited %></td>
+    </tr>
+  <% end %>
+</table>

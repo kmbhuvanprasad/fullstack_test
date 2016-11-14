@@ -1,0 +1,27 @@
+<h1>Signup!</h1>
+
+<%= form_for :user, url: '/users' do |u| %>
+
+		<% if @user.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@user.errors.count, "error") %> prohibited
+		        this user from being saved:
+		      </h2>
+		      <ul>
+		        <% @user.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+  		<% end %>
+
+  FirstName: <%= f.text_field :firstname %>
+  LastName: <%= f.text_field :lastname %>
+  UserName: <%= f.text_field :username %>
+  Email: <%= f.text_field :email %>
+  Phonenumber: <%= f.text_field :Phonenumber %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit" %>
+<% end %>

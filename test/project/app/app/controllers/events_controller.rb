@@ -7,13 +7,16 @@ class EventsController < ApplicationController
 
 	def create
 	  @event=Event.new(event_params)
-	  @event.save
-	  redirect_to new_event_path
+	  if @event.save
+	  	redirect_to event_index_path
+	  else
+	  	redirect_to signup_path
+	  end
 	end
 
      def index
-   		@event=Event.new
-	 	@user=User.all
+   		# @event=Event.new
+	 	@event=Event.all
 	 end
 
 

@@ -1,4 +1,20 @@
-<h1>event page</h1>
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "Event Schedular", '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home",  root_path %></li>
+             <li><%= link_to "sign out", new_user_path %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+   </div>
+
+   <br><br><br><br>
+   <h1>Event page</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -18,29 +34,29 @@
   <% end %>
 
 
-      <%= f.label :event_mame %>
+      <%= f.label :event_name %>
       <%= f.text_field :event_name %>
 
        <%= f.label :venue %>
       <%= f.text_field :venue %>
 
  	    <%= f.label :date %>
-      <%= f.text_field :date %>
+      <%= f.date_select :date %>
 
       <%= f.label :time %>
       <%= f.text_field :time %>
 
       <%= f.label :description %>
-      <%= f.password_field :description %>
+      <%= f.text_area :description %>
 
-          <%= f.label :invited %>
-      <%= f.password_field :invited %>'
+      <%= f.label :invited %>
+      <%= f.text_area :invited %>'
 
-          <%= f.label :status %>
-      <%= f.password_field :status %>
+      <%= f.label :status %>
+      <%=f.select :status, [['Open','open'],['Close','close']]%>
 <br>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Create my event", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
