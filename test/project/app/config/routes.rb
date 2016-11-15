@@ -12,6 +12,8 @@ post '/users' => 'users#create' ,as: :users
 get '/events/new' => 'events#new' ,as: :new_event
 post '/events' =>'events#create' ,as: :events
 get '/event' =>'events#index' ,as: :event_index
+get '/event/:id/edit' =>'events#edit', as: :event_edit
+patch '/event/:id/edit' => 'events#update', as: :event_update
 
 # get "user/list" => "users#index", as: :user_index
 
@@ -22,9 +24,10 @@ post  '/sessions' => 'sessions#create', as: :sessions
 delete '/sessions/:id' => 'sessions#destroy', as: :session 
 
 
+
   # post '/login' => 'sessions#create'
   # get '/logout' => 'sessions#destroy'
-resources :sessions, only: [:new, :create, :destroy]
+# resources :sessions, only: [:new, :create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

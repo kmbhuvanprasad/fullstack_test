@@ -1,3 +1,5 @@
 class Event < ActiveRecord::Base
-	has_and_belongs_to_many :users
+	has_many :users,through: :participants
+	has_many :participants
+	belongs_to :owner,class_name:"User" 
 end

@@ -22,8 +22,8 @@
     <% if @user.errors.any? %>
       <div id="error_explanation">
           <h2>
-            <%= pluralize(@article.errors.count, "error") %> prohibited
-            this article from being saved:
+            <%= pluralize(@user.errors.count, "error") %> prohibited
+            this user from being saved:
           </h2>
           <ul>
             <% @user.errors.full_messages.each do |msg| %>
@@ -34,26 +34,26 @@
   <% end %>
 
 
-      <%= f.label :firstmame %>
-      <%= f.text_field :firstname %>
+      <%= f.label :firstname %>
+      <%= f.text_field :firstname, required:true %>
 
        <%= f.label :lastname %>
-      <%= f.text_field :lastname %>
+      <%= f.text_field :lastname, required:true %>
 
  	    <%= f.label :username %>
-      <%= f.text_field :username %>
+      <%= f.text_field :username, required:true %>
 
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.email_field :email, required:true %>
 
        <%= f.label :phonenumber %>
-      <%= f.text_field :phonenumber %>
+      <%= f.telephone_field :phonenumber, required:true %>
 
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, required:true %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %> <br>
+      <%= f.password_field :password_confirmation, required:true %> <br>
 
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
        </div>
