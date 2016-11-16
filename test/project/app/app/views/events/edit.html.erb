@@ -1,6 +1,6 @@
 
+<%if session[:user_id]==@event.owner_id.to_i%>
 <%= form_for :event, url: event_update_path(@event), method: :patch do |f| %>
-
 
 <p>
 	<%= f.label :event_name %>
@@ -31,5 +31,5 @@
 <%= f.submit "Create my event", class: "btn btn-large btn-primary" %>
 <% end %>
 
-	  
+<% end %>	  
     

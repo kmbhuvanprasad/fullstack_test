@@ -56,6 +56,16 @@
       <%=f.select :status, [['Open','open'],['Close','close']]%>
 <br>
 
+    <%= f.fields_for :partcipent  do |f| %>
+      <h2 class="createevent-title">Add participents</h2>
+        <% User.all.each do |t| %>
+         <%if !(t.id==@current_user.id)%>
+         <%= check_box_tag "user_ids[]", t.id  %>
+         <%=  t.firstname %>&nbsp; <%=  t.lastname %><br>
+         <% end %>
+      <% end %>
+    <% end %>
+
       <%= f.submit "Create my event", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

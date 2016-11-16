@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def edit
-      @user=User.find_by_id(params[:id])
+      @user=User.find(params[:id])
   end
 
   def update

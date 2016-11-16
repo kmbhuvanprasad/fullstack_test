@@ -8,8 +8,12 @@ class EventsController < ApplicationController
 	end
 
 	def create
+		binding.pry
 	  User.find(session[:user_id]).events << Event.new(event_params)
-	  redirect_to event_index_path
+	  if params["user_ids"]
+	  	Event.last.users << User.find(params["user_ids"])
+	  	redirect_to event_index_path
+		end
 	end
 
   def index
@@ -19,6 +23,7 @@ class EventsController < ApplicationController
 
 	def edit
 	 	@event=Event.find(params[:id])
+	 	@current_user=User.find(session[:user_id])
 	end
 
 	def update
