@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
 	def new
 		@event=Event.new
+		@current_user=User.find(session[:user_id])
 	end
 
 	def create
@@ -11,24 +12,31 @@ class EventsController < ApplicationController
 	  redirect_to event_index_path
 	end
 
-     def index
+  def index
 	 	@event=Event.all
-	 end
+	 	@current_user=User.find(session[:user_id])
+	end
 
-	 def edit
+	def edit
 	 	@event=Event.find(params[:id])
-	 end
+	end
 
-	  def update
-	  	binding.pry
-	 	@event=Event.find_by_id(params[:id])
+	def update
+	 	@event=Event.find(params[:id])
 		@event.update(event_params)
  		redirect_to event_index_path
-	 end
+	end
+
+	def destroy
+	 	@event=Event.find(params[:id])
+	 	@event.destroy
+	 	redirect_to event_index_path
+	end
 
 	private	
-	 def event_params
+
+	def event_params
 	 	params.require(:event).permit(:event_name,:venue,:date,:time,:description,:invited,:status)
-	 end
+	end
 
 end
